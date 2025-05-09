@@ -47,6 +47,20 @@
     margin: 0 auto;
   }
   
+  .blog-intro {
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 800px;
+  }
+  
+  .blog-intro.en {
+    margin-top: 10px;
+    font-style: italic;
+    color: #999999;
+  } 
+
   .blog-container h1 {
     font-size: 32px;
     margin-bottom: 40px;
