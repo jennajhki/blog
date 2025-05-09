@@ -1,5 +1,50 @@
-<html>
-    <body>
-        <p>hello world!</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="blog.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html" class="active">blog</a>
+      <a href="contact.html">contact</a>
+    </nav>
+  </header>
+
+  <main class="blog-container">
+    <h1>Web Development Blog</h1>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="card-content">
+          <h2>How I Built My Portfolio from Scratch</h2>
+          <p class="date">May 9, 2025</p>
+          <p class="excerpt">A breakdown of how I structured and styled this portfolio site using HTML, CSS, and custom components.</p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-content">
+          <h2>Responsive Layouts with Flex and Grid</h2>
+          <p class="date">April 27, 2025</p>
+          <p class="excerpt">Key differences between flexbox and grid, when to use which, and how I combine them effectively.</p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-content">
+          <h2>Dark Mode in CSS: Best Practices</h2>
+          <p class="excerpt">Implementing dark mode with custom properties and prefers-color-scheme: a minimalist approach.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
 </html>
