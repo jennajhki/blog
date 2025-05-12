@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript 기초 정리 - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>JavaScript 기초: 타입과 함수</h1>
+    <p class="date">📅 2025년 5월 12일</p>
+
+    <section class="post-content">
+      <h2>1. JavaScript의 기본 타입</h2>
+      <p>오늘은 JavaScript의 기본적인 데이터 타입에 대해 배웠다. 자주 쓰이는 타입은 아래와 같다:</p>
+      <ul>
+        <li><strong>number</strong> – 숫자 (예: 10, 3.14)</li>
+        <li><strong>string</strong> – 문자열 (예: "hello")</li>
+        <li><strong>boolean</strong> – true 또는 false</li>
+        <li><strong>null</strong> – 값이 없음을 명시적으로 표현</li>
+        <li><strong>undefined</strong> – 값이 할당되지 않은 상태</li>
+        <li><strong>symbol</strong> – 유일한 값을 나타내는 타입</li>
+      </ul>
+
+      <h2>2. 함수 작성 방법</h2>
+      <p>JavaScript에서는 <code>function</code> 키워드를 사용해서 함수를 정의한다. 함수 이름 뒤에 <code>()</code> 소괄호를 쓰고, 그 안에는 매개변수를 넣을 수 있다. <code>{}</code> 중괄호 안에는 실행할 코드가 들어간다.</p>
+
+      <p>아래는 두 개의 숫자를 곱해주는 함수 예시다:</p>
+
+      <pre><code>
+function multiply(x, y) {
+  return x * y;
+}
+
+console.log(multiply(2934, 54392)); // 결과 출력
+      </code></pre>
+
+      <p>또는 아래와 같이 다른 함수를 정의하고 호출할 수도 있다:</p>
+
+      <pre><code>
+function add(a, b) {
+  return a + b;
+}
+
+let result = add(2, 3);
+console.log(result); // 5 출력
+      </code></pre>
+
+      <h2>3. 간단한 느낌</h2>
+      <p>아직 익숙하지는 않지만, 규칙은 비교적 명확해서 반복해서 연습하면 금방 감이 잡힐 것 같다. 다음엔 조건문과 반복문도 더 깊게 정리해보려고 한다.</p>
+    </section>
+  </main>
+</body>
+</html>

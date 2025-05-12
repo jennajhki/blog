@@ -48,17 +48,17 @@
   }
 
   .blog-intro {
-    font-size: 16px;
-    color: #ccc;
-    margin-bottom: 40px;
-    line-height: 1.6;
-  }
-  
-  .blog-intro.en {
-    margin-top: -20px;
-    font-size: 14px;
-    color: #888;
-  }
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.blog-intro.en {
+  margin-top: -20px;
+  font-size: 14px;
+  color: #888;
+}
   .blog-container {
     padding: 60px 40px;
     max-width: 1000px;
