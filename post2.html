@@ -32,6 +32,95 @@
         <li><strong>undefined</strong> – 값이 할당되지 않은 상태</li>
         <li><strong>symbol</strong> – 유일한 값을 나타내는 타입</li>
       </ul>
+      <p>JavaScript에서는 정수(int)와 소수(float)를 구분하지 않고 모두 <code>number</code> 타입으로 처리한다.</p>
+
+      <pre><code>
+const a = 10;
+const b = 3.14;
+
+console.log(typeof a); // "number"
+console.log(typeof b); // "number"
+      </code></pre>
+
+      <p>내부적으로는 IEEE-754 방식의 64비트 부동소수점으로 저장된다.</p>
+
+      <h2>2. 아주 큰 정수: <code>bigint</code></h2>
+      <p><code>number</code> 타입은 최대 안전 정수인 2<sup>53</sup> - 1까지만 정확하게 표현 가능하다. 이를 초과하는 경우 <code>bigint</code> 타입을 사용해야 한다.</p>
+
+      <pre><code>
+const big = 999999999999999999999n;
+console.log(typeof big); // "bigint"
+      </code></pre>
+
+      <p>숫자 뒤에 <code>n</code>을 붙이면 <code>bigint</code>로 인식된다.</p>
+
+      <h2>3. 특수 숫자: <code>NaN</code>과 <code>Infinity</code></h2>
+      <p>자바스크립트에는 숫자와 관련된 특수 값도 있다:</p>
+
+      <ul>
+        <li><strong>NaN</strong> – Not a Number (숫자가 아님)</li>
+        <li><strong>Infinity</strong> – 무한대</li>
+      </ul>
+
+      <pre><code>
+console.log(typeof NaN);      // "number"
+console.log(typeof Infinity); // "number"
+      </code></pre>
+
+      <h2>4. 정리 표</h2>
+      <p>숫자 관련 타입들을 표로 정리하면 다음과 같다:</p>
+
+      <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+          <tr>
+            <th>개념</th>
+            <th>JS 타입</th>
+            <th>예시</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>정수</td>
+            <td>number</td>
+            <td>10, -3</td>
+            <td>정수와 소수 구분 없음</td>
+          </tr>
+          <tr>
+            <td>소수</td>
+            <td>number</td>
+            <td>3.14, 0.1</td>
+            <td>float 따로 없음</td>
+          </tr>
+          <tr>
+            <td>큰 정수</td>
+            <td>bigint</td>
+            <td>123456789123456789n</td>
+            <td>숫자 뒤에 n</td>
+          </tr>
+          <tr>
+            <td>무한대</td>
+            <td>number</td>
+            <td>Infinity</td>
+            <td>예: 1 / 0</td>
+          </tr>
+          <tr>
+            <td>NaN</td>
+            <td>number</td>
+            <td>NaN</td>
+            <td>Not a Number</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>5. typeof vs instanceof</h2>
+      <p><code>typeof</code>은 데이터 타입을 문자열로 확인하고, <code>instanceof</code>는 어떤 객체가 특정 생성자의 인스턴스인지 확인하는 데 사용된다.</p>
+
+      <pre><code>
+const date = new Date();
+console.log(typeof date);       // "object"
+console.log(date instanceof Date); // true
+      </code></pre>
 
       <h2>2. 함수 작성 방법</h2>
       <p>JavaScript에서는 <code>function</code> 키워드를 사용해서 함수를 정의한다. 함수 이름 뒤에 <code>()</code> 소괄호를 쓰고, 그 안에는 매개변수를 넣을 수 있다. <code>{}</code> 중괄호 안에는 실행할 코드가 들어간다.</p>
@@ -58,7 +147,7 @@ console.log(result); // 5 출력
       </code></pre>
 
       <h2>3. 간단한 느낌</h2>
-      <p>아직 익숙하지는 않지만, 규칙은 비교적 명확해서 반복해서 연습하면 금방 감이 잡힐 것 같다. 다음엔 조건문과 반복문도 더 깊게 정리해보려고 한다.</p>
+      <p>아직 코드가 익숙하지 않아 어렵다. 다음엔 조건문과 반복문도 더 연습해서 정리해보려고 한다.</p>
     </section>
   </main>
 </body>
