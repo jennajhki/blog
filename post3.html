@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>if, for, while...javascript. - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>조건문과 반복문 (if, else, for, while)</h1>
+    <p class="date">📅 2025년 5월 10일</p>
+
+    <section class="post-content">
+      <p>오늘은 JavaScript의 조건문과 반복문을 처음 배웠다.  
+      문법 자체는 단순해 보였지만, **로직이 어떻게 흐르는지 머릿속으로 그리는 게 어려움.**  
+      중첩 조건문이나 반복문 안에 조건문이 들어가는 경우 헷갈림.</p>
+
+      <h2>1. 조건문 <code>if</code> / <code>else</code></h2>
+      <p>조건에 따라 코드를 다르게 실행할 때 사용하는 구문.</p>
+
+      <pre><code>
+const score = 85;
+
+if (score >= 90) {
+  console.log("A");
+} else if (score >= 80) {
+  console.log("B");
+} else {
+  console.log("C or below");
+}
+      </code></pre>
+
+      <h2>2. 반복문 <code>for</code></h2>
+      <p>정해진 횟수만큼 반복할 때 사용.</p>
+
+      <pre><code>
+for (let i = 0; i < 5; i++) {
+  console.log("i의 값:", i);
+}
+      </code></pre>
+
+      <h2>3. 반복문 <code>while</code></h2>
+      <p>조건이 참인 동안 계속 반복한다.  
+      조건이 false가 될 때까지 반복하므로, **종료 조건을 정확히 써야 무한루프를 피할 수 있음.**</p>
+
+      <pre><code>
+let count = 0;
+
+while (count < 3) {
+  console.log("count:", count);
+  count++;
+}
+      </code></pre>
+
+      <p>
+      아직 헷갈리지만 중첩 반복문도 연습해봐야겠다.</p>
+    </section>
+  </main>
+</body>
+</html>
