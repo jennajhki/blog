@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>계산기 만들기➖➕✖️➗ - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post4.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>JavaScript로 계산기 만들기 (5월 14일)</h1>
+    <p class="date">📅 2025년 5월 14일</p>
+
+    <section class="post-content">
+      <p>오늘은 JavaScript를 이용해 계산기를 만드는 과제를 진행했다.  
+      버튼을 누르면 숫자나 연산자가 입력되고, `Enter` 버튼을 누르면 결과가 출력되는 구조를 직접 구현해보았다.</p>
+
+      <p>숫자 → 연산자 → 숫자 → 결과 를 처리하는 게 어려웠음.</p>
+
+      <p>버튼을 눌렀을 때 어떤 값을 저장해둬야 할지 고민하며 아래와 같은 변수를 만들었다:</p>
+
+      <ul>
+        <li><code>firstNum</code> — 현재 입력 중인 숫자</li>
+        <li><code>previousNum</code> — 연산자 이전의 숫자</li>
+        <li><code>operatorForAdvanced</code> — 현재 선택된 연산자</li>
+        <li><code>previousKey</code> — 마지막으로 누른 버튼의 종류 (number/operator 등)</li>
+      </ul>
+
+      <h3>코드 일부</h3>
+      <pre><code>
+const display = document.querySelector('.calculator__display--for-advanced');
+let firstNum = '', previousNum = '', operatorForAdvanced, previousKey;
+
+buttons.addEventListener('click', function (event) {
+  const target = event.target;
+  const action = target.classList[0];
+  const buttonContent = target.textContent;
+
+  if (target.matches('button')) {
+    if (action === 'number') {
+      if (previousKey === 'operator') {
+        previousNum = firstNum;
+        firstNum = '';
+      }
+      firstNum += buttonContent;
+      display.textContent = firstNum;
+      previousKey = action;
+    }
+
+    if (action === 'operator') {
+      operatorForAdvanced = buttonContent;
+      previousKey = action;
+    }
+
+    if (action === 'clear') {
+      display.textContent = '0';
+      previousNum = '0';
+      firstNum = '';
+    }
+
+    if (action === 'calculate') {
+      display.textContent = calculate(previousNum, operatorForAdvanced, firstNum);
+    }
+  }
+});
+      </code></pre>
+
+      <p>단순한 기능 같지만, 상태를 저장하고, 순서를 제어하는 로직을 더 연습해야겠다.</p>
+    </section>
+  </main>
+</body>
+</html>
