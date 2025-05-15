@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reference Type 참조 타입 - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post5.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>참조 타입들</h1>
+    <p class="date">📅 2025년 5월 15일</p>
+
+    <section class="post-content">
+      <p>오늘은 JavaScript에서 <strong>참조 타입(Reference Type)</strong>에 대해 배웠다.</p>
+
+      <h3>참조 타입의 종류</h3>
+      <ul>
+        <li>📦 <strong>Object (객체)</strong></li>
+        <li>📚 <strong>Array (배열)</strong></li>
+        <li>🔧 <strong>Function (함수)</strong></li>
+      </ul>
+
+      <h3>배열 메서드 & 객체 메서드</h3>
+      <p>오늘 사용해본 주요 메서드는 다음과 같다:</p>
+
+      <ul>
+        <li><code>push</code>, <code>pop</code>, <code>shift</code>, <code>unshift</code></li>
+        <li><code>sort</code>, <code>reverse</code>, <code>includes</code>, <code>slice</code>, <code>splice</code></li>
+        <li><code>Object.keys</code>, <code>Object.values</code>, <code>Object.assign</code>, <code>Object.freeze</code></li>
+      </ul>
+
+      <h3>Shallow Copy vs Deep Copy</h3>
+      <p>객체나 배열을 복사할 때 <strong>그냥 = 으로 대입하면 얕은 복사</strong>가 된다.  
+      <code>spread (...) 연산자</code>를 사용하거나, <code>structuredClone</code> 또는 <code>JSON.parse(JSON.stringify(obj))</code>를 사용하면 깊은 복사를 만들 수 있다.</p>
+
+      <h3>실습 예제</h3>
+
+      <pre><code>
+let student = [
+  {id: 1, name: 'Kim', score: {math: 50, english: 70, korean: 30, physics: 60}},
+  {id: 2, name: 'Kim', score: {math: 80, english: 60, korean: 40, physics: 40}},
+  {id: 3, name: 'Lee', score: {math: 70, english: 50, korean: 50, physics: 80}}
+];
+
+let kim = student.filter(s => s.name.includes('Kim'));
+
+const result = kim.map(kims => ({
+  ...kims,
+  score: {
+    ...kims.score,
+    science: 100,
+    history: 100
+  }
+}));
+
+console.log(kim);
+console.log(result);
+      </code></pre>
+
+      <p>배열을 <code>filter</code>로 추출하고, <code>map</code>을 통해 <strong>과목 추가</strong>까지 진행해보았다.  
+      구조 분해 할당 (...스프레드)을 중첩해서 써야 한다는 점이 어려웟다...🫨</p>
+
+    </section>
+  </main>
+</body>
+</html>
