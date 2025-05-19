@@ -1,0 +1,110 @@
+/* 기본 스타일 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 20px 40px;
+    border-bottom: 1px solid #333;
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1DB954;
+  }
+  
+  .nav-links a {
+    color: #b3b3b3;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #ffffff;
+  }
+  
+  .post-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  
+  .post-container h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #1DB954;
+  }
+  
+  .date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+  }
+  
+  .post-content h2 {
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    color: #ffffff;
+  }
+  
+  .post-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #dddddd;
+  }
+  
+  ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  
+  ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  /* 코드 블록 */
+  pre {
+    background-color: #1a1a1a;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+  
+  pre code {
+    color: #d4d4d4;
+    font-size: 14px;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* 시각적 피드백 예시 클래스 */
+  .success-message {
+    color: #1DB954;
+    margin-top: 8px;
+  }
+  
+  .failure-message {
+    color: #FF6B6B;
+    margin-top: 8px;
+  }
+  
+  .hide {
+    display: none;
+  }
+  

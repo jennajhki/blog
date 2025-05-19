@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOM & validation - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post6.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>DOM 구조 & 회원가입 유효성 검사 실습</h1>
+    <p class="date">📅 2025년 5월 19일</p>
+
+    <section class="post-content">
+      <p>오늘은 JavaScript에서 <strong>DOM 요소를 가져오는 방법</strong>과  
+      <strong>회원가입 입력값 유효성 검사</strong>를 실제로 구현하는 실습을 했다.</p>
+
+      <h2>1. DOM 요소 선택</h2>
+      <p>HTML 내 특정 요소를 가져오기 위해 사용한 주요 메서드:</p>
+
+      <ul>
+        <li><code>document.querySelector()</code> – 단일 요소 선택</li>
+        <li><code>document.querySelectorAll()</code> – 여러 요소 선택 (NodeList 반환)</li>
+      </ul>
+
+      <h2>2. 시각적 피드백과 인터랙션 설계</h2>
+      <p>사용자가 값을 입력하면, 그 값이 올바른지 아닌지에 따라 <strong>시각적으로 피드백</strong>이 나타나도록 설계함</p>
+
+      <pre><code>
+&lt;div class="failure-message hide"&gt;아이디는 네 글자 이상이어야 합니다&lt;/div&gt;
+&lt;div class="success-message hide"&gt;사용 가능한 아이디입니다&lt;/div&gt;
+      </code></pre>
+
+      <p>입력 전에는 <code>hide</code> 클래스가 있어서 보이지 않다가, 유효한 입력이 들어오면 해당 클래스를 제거해서 메시지 보여줌</p>
+
+      <h2>3. 비밀번호 유효성 검사</h2>
+      <p>비밀번호가 유효한지를 검사하고, 입력값이 바뀔 때마다 피드백 줌</p>
+
+      <pre><code>
+elPassword.onkeyup = function () {
+  const pw = elPassword.value;
+  if (isPasswordValid(pw)) {
+    elPwSuccess.classList.remove('hide');
+    elPwFailure.classList.add('hide');
+  } else {
+    elPwSuccess.classList.add('hide');
+    elPwFailure.classList.remove('hide');
+  }
+};
+      </code></pre>
+
+      <h2>4. 비밀번호 확인: 일치 여부 검사</h2>
+      <p>두 개의 입력값이 서로 같은지를 확인하는 <code>isMatch()</code> 함수로 구현</p>
+
+      <pre><code>
+function isMatch(pw1, pw2) {
+  return pw1 === pw2;
+}
+
+elPasswordRetype.onkeyup = function () {
+  const pw1 = elPassword.value;
+  const pw2 = elPasswordRetype.value;
+
+  if (isMatch(pw1, pw2)) {
+    elMatch.classList.remove('hide');
+    elMismatch.classList.add('hide');
+  } else {
+    elMatch.classList.add('hide');
+    elMismatch.classList.remove('hide');
+  }
+};
+      </code></pre>
+
+      <p>단순한 UI지만, 값을 감지하고 피드백을 보여주는 흐름을 직접 구현하면서 DOM 구조에 대한 감이 조금 생겼다. AI가 조금 도와줬지만,,ㅎ</p>
+
+    </section>
+  </main>
+</body>
+</html>
