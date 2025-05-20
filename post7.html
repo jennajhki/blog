@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Higer Order Function(HOF) - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post7.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>고차 함수 (filter, map, reduce)</h1>
+    <p class="date">📅 2025년 5월 20일</p>
+
+    <section class="post-content">
+      <p>오늘은 JavaScript에서 고차 함수(Higher Order Function), 특히 <code>filter</code>, <code>map</code>, <code>reduce</code>에 대해 공부했다.  
+      for문이나 if문을 쓰던 방식과 다르게, 좀 더 추상적이고 선언적인 코드 방식이라는 점이 흥미로웠지만  
+      동시에 아직 익숙하지 않아서 낯설게 느껴지기도 했다.</p>
+
+      <h2>1. 고차 함수란(Higher Order Function)?</h2>
+      <p>함수를 인자로 받거나 함수를 리턴하는 함수이다.  
+      JavaScript에서는 <code>filter</code>, <code>map</code>, <code>reduce</code> 같은 메서드가 대표적인 고차 함수이다.</p>
+
+      <h2>2. 각 함수 설명 & 예시</h2>
+
+      <h3>📌 filter – 조건에 맞는 값만 골라내기</h3>
+      <pre><code>
+const nums = [1, 2, 3, 4, 5];
+const even = nums.filter(n => n % 2 === 0); // [2, 4]
+      </code></pre>
+      <p>배열 중에서 <strong>조건에 맞는 값만 추출</strong>할 때 사용.</p>
+
+      <h3>📌 map – 배열의 각 요소를 가공해서 새로운 배열 생성</h3>
+      <pre><code>
+const nums = [1, 2, 3];
+const squared = nums.map(n => n * n); // [1, 4, 9]
+      </code></pre>
+      <p>배열을 <strong>변형하거나 계산할 때</strong> 사용.</p>
+
+      <h3>📌 reduce – 배열을 하나의 값으로 누적</h3>
+      <pre><code>
+const nums = [1, 2, 3, 4];
+const sum = nums.reduce((acc, cur) => acc + cur, 0); // 10
+      </code></pre>
+      <p><strong>합계, 평균, 누적 결과</strong>를 만들 때 사용.</p>
+
+      <h2>3. for문과 비교했을 때</h2>
+      <p>기존에는 다음처럼 썼던 코드를:</p>
+
+      <pre><code>
+// for문 방식
+let result = [];
+for (let i = 0; i < nums.length; i++) {
+  if (nums[i] % 2 === 0) result.push(nums[i]);
+}
+      </code></pre>
+
+      <p>이제는 이렇게 더 <strong>간결하고 선언적</strong>으로 작성할 수 있다:</p>
+
+      <pre><code>
+// 고차 함수 방식
+const result = nums.filter(n => n % 2 === 0);
+      </code></pre>
+
+
+      <p>지금까지는 for문과 if문 중심의 사고방식에 익숙했기 때문에,  
+      <strong>함수를 전달해서 처리한다는 개념</strong>이 아직은 어렵다.</p>
+
+      <p>하지만 코드를 간결하게 만들고, 반복적인 로직을 추상화하는 데 유용하다. map, filter, reduce를 더 많이 써보고 손에 익히는 연습이 필요하다.</p>
+    </section>
+  </main>
+</body>
+</html>
