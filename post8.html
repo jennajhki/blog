@@ -52,7 +52,7 @@
       <p>추상 클래스 <code>Shape</code>를 만들고, 그 하위 클래스로 <code>Circle</code>, <code>Triangle</code>, <code>Rectangle</code>, <code>Square</code>를 정의했다.</p>
 
       <pre><code>
-        // Shape: 추상 클래스. 직접 인스턴스화하지 않고 상속만 허용
+        // <span style="color: rgb(150, 150, 255);">Shape: 추상 클래스. 직접 인스턴스화하지 않고 상속만 허용</span>
         class Shape {
           constructor() {
             if (this.constructor === Shape) {
@@ -60,16 +60,16 @@
             }
           }
         
-          area() {
+          <span style="color: rgb(150, 150, 255);">area() {</span>
             throw new Error("자식 클래스에서 area() 구현 필요");
           }
         
-          perimeter() {
+          <span style="color: rgb(150, 150, 255);">perimeter() {</span>
             throw new Error("자식 클래스에서 perimeter() 구현 필요");
           }
         }
         
-        // Circle: Shape를 상속한 자식 클래스 (extends 사용)
+        // <span style="color: green;">Circle: Shape를 상속한 자식 클래스 (extends 사용)</span>
         // super(): 부모 클래스(Shape)의 constructor 호출
         class Circle extends Shape {
           constructor(radius) {
@@ -86,7 +86,7 @@
           }
         }
         
-        // Triangle: 삼각형. 자식 클래스는 부모의 모든 기능을 물려받음
+        // <span style="color: green;">Triangle: 삼각형. 자식 클래스는 부모의 모든 기능을 물려받음</span>
         class Triangle extends Shape {
           constructor(a, b, c) {
             super();
@@ -105,7 +105,7 @@
           }
         }
         
-        // Rectangle: 사각형 클래스. width와 height 속성 포함
+        // <span style="color: green;">Rectangle: 사각형 클래스. width와 height 속성 포함</span>
         class Rectangle extends Shape {
           constructor(width, height) {
             super();
@@ -122,7 +122,7 @@
           }
         }
         
-        // Square: Rectangle을 상속한 하위 클래스 (정사각형)
+        // <span style="color: green;">Square: Rectangle을 상속한 하위 클래스 (정사각형)</span>
         // Rectangle의 모든 메서드를 그대로 사용할 수 있음
         class Square extends Rectangle {
           constructor(side) {
@@ -130,15 +130,12 @@
           }
         }
         
-        // ✅ 주요 용어 설명:
-        // 클래스(class): 객체를 만들기 위한 설계도
-        // 인스턴스(instance): 클래스로부터 실제 생성된 객체
-        // 속성(property): 객체가 가지고 있는 값 (예: radius)
-        // 메서드(method): 객체가 할 수 있는 동작 (예: area())
-        // 상속(inheritance): 한 클래스가 다른 클래스를 확장하는 것 (extends)
-        // super(): 부모 클래스의 constructor 또는 메서드 호출
+        // <span style="color: rgb(255, 158, 158);">주요 용어 설명:</span>
+        // <span style="color: rgb(255, 158, 158);">클래스(class): 설계도</span> | <span style="color: rgb(255, 158, 158);">인스턴스(instance): 실제 객체</span>
+        // <span style="color: rgb(255, 158, 158);">속성(property): 값/데이터</span> | <span style="color: rgb(255, 158, 158);">메서드(method): 동작</span>
+        // <span style="color: rgb(255, 158, 158);">상속(inheritance): 부모 기능 물려받기</span> | <span style="color: rgb(255, 158, 158);">super(): 부모 constructor 호출</span>
+        </code></pre>
         
-      </code></pre>
 
 
       <p>클래스를 정리해두고 <code>extends</code>, <code>super</code>를 이용해 하위 클래스에서 필요한 부분만 추가하니  
