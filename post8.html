@@ -52,76 +52,92 @@
       <p>추상 클래스 <code>Shape</code>를 만들고, 그 하위 클래스로 <code>Circle</code>, <code>Triangle</code>, <code>Rectangle</code>, <code>Square</code>를 정의했다.</p>
 
       <pre><code>
-class Shape {
-  constructor() {
-    if (this.constructor === Shape) {
-      throw new Error("추상 클래스는 인스턴스화할 수 없습니다");
-    }
-  }
-
-  area() {
-    throw new Error("자식 클래스에서 area() 구현 필요");
-  }
-
-  perimeter() {
-    throw new Error("자식 클래스에서 perimeter() 구현 필요");
-  }
-}
-
-class Circle extends Shape {
-  constructor(radius) {
-    super();
-    this.radius = radius;
-  }
-
-  area() {
-    return Math.PI * this.radius ** 2;
-  }
-
-  perimeter() {
-    return 2 * Math.PI * this.radius;
-  }
-}
-
-class Triangle extends Shape {
-  constructor(a, b, c) {
-    super();
-    this.a = a;
-    this.b = b;
-    this.c = c;
-  }
-
-  perimeter() {
-    return this.a + this.b + this.c;
-  }
-
-  area() {
-    const s = this.perimeter() / 2;
-    return Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
-  }
-}
-
-class Rectangle extends Shape {
-  constructor(width, height) {
-    super();
-    this.width = width;
-    this.height = height;
-  }
-
-  area() {
-    return this.width * this.height;
-  }
-
-  perimeter() {
-    return 2 * (this.width + this.height);
-  }
-}
-
-class Square extends Rectangle {
-  constructor(side) {
-    super(side, side);
-  }
-}
+        // Shape: 추상 클래스. 직접 인스턴스화하지 않고 상속만 허용
+        class Shape {
+          constructor() {
+            if (this.constructor === Shape) {
+              throw new Error("추상 클래스는 인스턴스화할 수 없습니다");
+            }
+          }
+        
+          area() {
+            throw new Error("자식 클래스에서 area() 구현 필요");
+          }
+        
+          perimeter() {
+            throw new Error("자식 클래스에서 perimeter() 구현 필요");
+          }
+        }
+        
+        // Circle: Shape를 상속한 자식 클래스 (extends 사용)
+        // super(): 부모 클래스(Shape)의 constructor 호출
+        class Circle extends Shape {
+          constructor(radius) {
+            super(); // 부모의 constructor 먼저 실행
+            this.radius = radius; // 인스턴스(객체)의 속성
+          }
+        
+          area() {
+            return Math.PI * this.radius ** 2;
+          }
+        
+          perimeter() {
+            return 2 * Math.PI * this.radius;
+          }
+        }
+        
+        // Triangle: 삼각형. 자식 클래스는 부모의 모든 기능을 물려받음
+        class Triangle extends Shape {
+          constructor(a, b, c) {
+            super();
+            this.a = a;
+            this.b = b;
+            this.c = c;
+          }
+        
+          perimeter() {
+            return this.a + this.b + this.c;
+          }
+        
+          area() {
+            const s = this.perimeter() / 2;
+            return Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
+          }
+        }
+        
+        // Rectangle: 사각형 클래스. width와 height 속성 포함
+        class Rectangle extends Shape {
+          constructor(width, height) {
+            super();
+            this.width = width;
+            this.height = height;
+          }
+        
+          area() {
+            return this.width * this.height;
+          }
+        
+          perimeter() {
+            return 2 * (this.width + this.height);
+          }
+        }
+        
+        // Square: Rectangle을 상속한 하위 클래스 (정사각형)
+        // Rectangle의 모든 메서드를 그대로 사용할 수 있음
+        class Square extends Rectangle {
+          constructor(side) {
+            super(side, side); // width = side, height = side
+          }
+        }
+        
+        // ✅ 주요 용어 설명:
+        // 클래스(class): 객체를 만들기 위한 설계도
+        // 인스턴스(instance): 클래스로부터 실제 생성된 객체
+        // 속성(property): 객체가 가지고 있는 값 (예: radius)
+        // 메서드(method): 객체가 할 수 있는 동작 (예: area())
+        // 상속(inheritance): 한 클래스가 다른 클래스를 확장하는 것 (extends)
+        // super(): 부모 클래스의 constructor 또는 메서드 호출
+        
       </code></pre>
 
 
