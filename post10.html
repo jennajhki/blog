@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React Router로 SPA 구현 - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post7.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>React Router로 SPA 구현하기</h1>
+    <p class="date">📅 2025년 5월 26일</p>
+
+    <section class="post-content">
+      <h2>1. SPA란?</h2>
+      <p>SPA(Single Page Application)는 하나의 HTML 파일 안에서 동적으로 화면을 바꾸는 방식이다.  
+      전체 페이지를 새로 불러오는 것이 아니라, 서버로부터 필요한 데이터만 가져와서 UI 일부만 갱신한다.</p>
+
+      <ul>
+        <li>페이지 전환 속도가 빠르고 부드러움</li>
+        <li>React와 같은 프론트엔드 프레임워크에서 자주 사용됨</li>
+        <li>라우팅 구현이 필수</li>
+      </ul>
+
+      <h2>2. React Router란?</h2>
+      <p>React는 기본적으로 페이지 이동(라우팅)을 지원하지 않기 때문에  
+      <strong>react-router-dom</strong>이라는 라이브러리를 사용해 클라이언트 사이드 라우팅을 구현한다.</p>
+
+      <pre><code>
+npm install react-router-dom
+      </code></pre>
+
+      <p>React Router를 사용하면 <strong>URL 경로에 따라 다른 컴포넌트를 렌더링</strong>할 수 있고, 화면 전환 없이 자연스러운 사용자 경험을 제공할 수 있다.</p>
+
+      <h2>3. 라우팅 구조 예시 (기본 구성)</h2>
+      <pre><code>
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Dashboard from "./Dashboard";
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;nav&gt;
+        &lt;Link to="/"&gt;Home&lt;/Link&gt;
+        &lt;Link to="/about"&gt;About&lt;/Link&gt;
+        &lt;Link to="/dashboard"&gt;Dashboard&lt;/Link&gt;
+      &lt;/nav&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={<Home />} /&gt;
+        &lt;Route path="/about" element={<About />} /&gt;
+        &lt;Route path="/dashboard" element={<Dashboard />} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+      </code></pre>
+
+      <h2>4. Routes & Route 설명</h2>
+      <ul>
+        <li><strong>&lt;Routes&gt;</strong>: 경로 목록을 감싸는 컴포넌트. 한 번에 하나만 렌더링</li>
+        <li><strong>&lt;Route path="..." element={...} /&gt;</strong>: 해당 경로에서 어떤 컴포넌트를 보여줄지 정의</li>
+        <li><strong>&lt;Link&gt;</strong>: 실제 페이지 이동 없이 주소와 렌더링 컴포넌트를 전환</li>
+      </ul>
+
+      <h2>5. 실습: 트위터 클론에 라우팅 추가</h2>
+      <p>기존에 만든 트위터 레이아웃에 <strong>Home</strong>, <strong>MyPage</strong>, <strong>About</strong> 페이지를 라우팅으로 구현했다.</p>
+
+      <pre><code>
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sidebar from './Sidebar';
+import Tweets from './Pages/Tweets';
+import MyPage from './Pages/MyPage';
+import About from './Pages/About';
+
+const App = () => {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;div className="App"&gt;
+        &lt;main&gt;
+          &lt;Sidebar /&gt;
+          &lt;section className="features"&gt;
+            &lt;Routes&gt;
+              &lt;Route path="/" element={<Tweets />} /&gt;
+              &lt;Route path="/mypage" element={<MyPage />} /&gt;
+              &lt;Route path="/about" element={<About />} /&gt;
+            &lt;/Routes&gt;
+          &lt;/section&gt;
+        &lt;/main&gt;
+      &lt;/div&gt;
+    &lt;/BrowserRouter&gt;
+  );
+};
+
+export default App;
+      </code></pre>
+
+      <h3>구현</h3>
+      <img src="Home.png" alt="Home 페이지" class="blog-image" />
+      <p class="caption">▲ 트위터 클론 - Home 페이지</p>
+
+      <img src="MyPage.png" alt="MyPage 페이지" class="blog-image" />
+      <p class="caption">▲ 트위터 클론 - MyPage 페이지</p>
+
+
+
+
+      <p> <strong>Sidebar와 URL 연결</strong>, 각 페이지 컴포넌트를 나누는 작업이 구조적인 사고가 필요한 것 같다. </p>
+    </section>
+  </main>
+</body>
+</html>
