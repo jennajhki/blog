@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React state & props - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post7.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>React의 상태(state)와 속성(props)</h1>
+    <p class="date">📅 2025년 5월 27일</p>
+
+    <section class="post-content">
+      <p>오늘은 React의 핵심 개념인 <strong>state</strong>와 <strong>props</strong>에 대해 배웠다.  
+      이 개념은 아직 익숙하진 않지만, <strong>컴포넌트 간 데이터 전달과 상태 변경</strong>에 있어서 매우 중요한 개념이다.</p>
+
+      <h2>1. state란?</h2>
+      <p><strong>State</strong>는 컴포넌트 내에서 관리되는 동적인 데이터이다.  
+      상태가 변경되면 해당 컴포넌트는 자동으로 리렌더링된다.</p>
+
+      <ul>
+        <li>변경 가능한 값</li>
+        <li>컴포넌트 안에서 정의</li>
+        <li>변경되면 자동으로 화면 업데이트</li>
+      </ul>
+
+      <h2>2. props란?</h2>
+      <p><strong>Props</strong>는 부모 컴포넌트가 자식 컴포넌트에게 전달하는 읽기 전용 데이터이다.  
+      직접 변경할 수 없으며, 변경하려면 부모에서 값을 바꿔야 한다.</p>
+
+      <ul>
+        <li>부모 → 자식으로 전달</li>
+        <li>읽기 전용</li>
+        <li>JSX 속성 형태로 전달</li>
+      </ul>
+
+      <h3>📦 props 전달 3단계</h3>
+      <ol>
+        <li>부모 컴포넌트에서 전달할 값 정의</li>
+        <li>JSX로 props를 자식에게 전달</li>
+        <li>자식 컴포넌트에서 props를 받아 렌더링</li>
+      </ol>
+
+      <h2>3. 이벤트 핸들링</h2>
+      <p>React에서도 DOM과 비슷하게 이벤트를 처리하지만, <strong>camelCase</strong>로 작성하며,  
+      <strong>함수를 직접 전달</strong>한다는 차이가 있다.</p>
+
+      <pre><code>
+&lt;button onClick={handleClick}&gt;클릭하세요&lt;/button&gt;
+      </code></pre>
+
+      <p>이벤트를 통해 상태(state)를 변경하고, 그에 따라 화면이 갱신된다.</p>
+
+      <h2>4. React의 데이터 흐름</h2>
+      <p>React는 <strong>단방향 데이터 흐름(one-way data flow)</strong>을 가진다.  
+      즉, 데이터는 항상 <strong>부모에서 자식으로 흐른다</strong>. 자식 컴포넌트는 props를 통해 전달받을 뿐 직접 변경할 수 없다.</p>
+
+      <h2>5. 실습: 트윗 기능 추가</h2>
+      <p>지난 시간에 만든 트위터 클론에 트윗을 올리는 기능을 추가했다.  
+      입력창에 값을 입력하고 버튼을 누르면 트윗이 추가되고, 자동으로 화면에 렌더링된다.</p>
+
+      <h3>🖼️ 결과 이미지</h3>
+      <img src="tweet_props.png" alt="트윗 기능 구현 화면" class="blog-image" />
+      <p class="caption">▲ props와 state를 이용해 트윗 추가 기능 구현</p>
+
+      <h2>6. 일부 코드 구성</h2>
+      <pre><code>
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sidebar from './Sidebar';
+import Tweets from './Pages/Tweets';
+import MyPage from './Pages/MyPage';
+import About from './Pages/About';
+
+const App = () => {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;div className="App"&gt;
+        &lt;main&gt;
+          &lt;Sidebar /&gt;
+          &lt;section className="features"&gt;
+            &lt;Routes&gt;
+              &lt;Route path="/" element={<Tweets />} /&gt;
+              &lt;Route path="/about" element={<About />} /&gt;
+              &lt;Route path="/mypage" element={<MyPage />} /&gt;
+            &lt;/Routes&gt;
+          &lt;/section&gt;
+        &lt;/main&gt;
+      &lt;/div&gt;
+    &lt;/BrowserRouter&gt;
+  );
+};
+
+export default App;
+      </code></pre>
+
+      <p>state와 props의 차이를 이해하는 게 어려웠다.  
+      특히 "props는 부모 → 자식만 가능하다"는 단방향 흐름과,  
+      state는 "컴포넌트 내부에서만 변경 가능하다"는 개념이 헷갈린다ㅠ</p>
+    </section>
+  </main>
+</body>
+</html>
