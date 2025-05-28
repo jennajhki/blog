@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>REST API 이해하기 - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post7.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>REST API 이해하기</h1>
+    <p class="date">📅 2025년 5월 29일</p>
+
+    <section class="post-content">
+      <p>오늘은 REST API의 개념과 RESTful한 방식으로 API를 설계하는 방법에 대해 배웠다.</p>
+
+      <h2>1. REST란?</h2>
+      <p><strong>REST(Representational State Transfer)</strong>는 HTTP를 기반으로 리소스(데이터)를 URI로 표현하고, 요청/응답을 명확한 규칙에 따라 주고받는 아키텍처 스타일이다.</p>
+
+      <h2>2. REST API의 기본 구성</h2>
+      <ul>
+        <li><strong>자원(Resource)</strong>: URI로 표현됨 (예: /posts/1)</li>
+        <li><strong>행위(Verb)</strong>: HTTP 메서드 (GET, POST, PUT, DELETE)</li>
+        <li><strong>표현(Representation)</strong>: JSON, XML 등으로 응답</li>
+      </ul>
+
+      <h2>3. REST 성숙도 모델</h2>
+      <h3>📍 0단계</h3>
+      <p>HTTP만 사용. RESTful하지 않은 초기 단계</p>
+
+      <h3>📍 1단계</h3>
+      <p>각 리소스마다 개별 URI를 부여함. 명사형으로 작성하며, 동사나 상태를 URI에 쓰지 않음.</p>
+
+      <h3>📍 2단계</h3>
+      <p>HTTP 메서드를 CRUD에 맞게 사용함:</p>
+      <ul>
+        <li><strong>GET</strong>: 조회</li>
+        <li><strong>POST</strong>: 생성</li>
+        <li><strong>PUT</strong>: 전체 교체</li>
+        <li><strong>PATCH</strong>: 부분 수정</li>
+        <li><strong>DELETE</strong>: 삭제</li>
+      </ul>
+      <p><strong>멱등성</strong>: 같은 요청을 여러 번 보내도 결과가 같아야 함 (GET, PUT, DELETE는 멱등, POST는 아님)</p>
+
+      <h3>📍 3단계 (HATEOAS)</h3>
+      <p>응답에 다음에 할 수 있는 행동을 안내하는 링크를 포함하여 하이퍼미디어 컨트롤을 제공함</p>
+
+      <h2>4. Open API와 API Key</h2>
+      <p>공공 데이터 포털(OpenAPI)이나 OpenWeatherMap과 같은 사이트는 누구나 접근 가능한 API를 제공한다.</p>
+      <p><strong>API Key</strong>는 인증 수단으로, 서버 접근을 제한하고 사용량을 관리하는 데 사용된다.</p>
+    </section>
+      <section>
+        <h2>Postman 시작하기</h2>
+        <p>
+          웹 개발에서 사용하는 대표적인 클라이언트는 브라우저입니다. 하지만 POST, PUT, DELETE 같은 요청은 <strong>Postman</strong>을 사용하여 보다 쉽게 테스트할 수 있습니다.
+        </p>
+  
+        <h3>Postman이란?</h3>
+        <ul>
+          <li>HTTP 요청을 시각적으로 테스트할 수 있는 도구</li>
+          <li>GET, POST, PUT, DELETE 등 다양한 메서드 지원</li>
+          <li>요청 헤더, 바디, 파라미터 설정 가능</li>
+        </ul>
+  
+        <h3>사용 절차</h3>
+        <ol>
+          <li>공식 사이트에서 설치: <a href="https://www.postman.com/" target="_blank">Postman.com</a></li>
+          <li>회원가입 및 로그인</li>
+          <li>New → HTTP Request 선택</li>
+          <li>요청 URL 및 메서드 입력</li>
+          <li>헤더/바디 작성 후 <strong>Send</strong> 클릭</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>오늘의 정리</h2>
+        <ul>
+          <li>REST는 단순한 HTTP API와 구별되는 명확한 설계 원칙이 있다</li>
+          <li>REST 성숙도 모델을 통해 API를 점진적으로 RESTful하게 설계할 수 있다</li>
+          <li>Open API를 통해 외부 데이터에 쉽게 접근할 수 있으며, API Key는 보안을 위한 필수 도구이다</li>
+          <li>Postman은 API 테스트에 매우 유용한 도구다</li>
+        </ul>
+        <p>실무에서 자주 사용되니 익숙해질 때까지 반복 실습이 필요하다!</p>
+      </section>
+
+  </main>
+</body>
+</html>
