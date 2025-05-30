@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeScript</title>
+  <link rel="stylesheet" href="post7.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+  <main class="post-container">
+    <h1>TypeScript</h1>
+    <p class="date">📅 2025년 5월 31일</p>
+
+    <section class="post-content">
+      <p>오늘은 JavaScript의 상위 집합 언어인 <strong>TypeScript</strong>에 대해 배웠다. 타입 안정성과 유지 보수성을 높여주는 언어로, 다양한 타입 시스템을 배워보았다.</p>
+
+      <h2>TypeScript 등장</h2>
+      <p>JavaScript의 동적 타입은 유연하지만, 대규모 프로젝트에서 유지보수가 어렵다는 단점이 있다. 이를 보완하기 위해 정적 타입 검사 기능을 도입한 TypeScript가 등장했다.</p>
+
+      <h2>기본 타입</h2>
+      <h3>Boolean</h3>
+      <pre><code>let isShow: boolean = true;</code></pre>
+
+      <h3>Number</h3>
+      <pre><code>let num: number = 42;
+let pi: number = 3.14;</code></pre>
+
+      <h3>String</h3>
+      <pre><code>let name: string = "Alice";</code></pre>
+
+      <h3>Array</h3>
+      <pre><code>let fruits: string[] = ["apple", "banana"];
+let nums: Array&lt;number&gt; = [1, 2, 3];</code></pre>
+
+      <h3>Tuple</h3>
+      <pre><code>let user: [string, number] = ["Alice", 30];</code></pre>
+
+      <h3>Object</h3>
+      <pre><code>let user: { name: string; age: number } = {
+  name: "Bob",
+  age: 25
+};</code></pre>
+
+      <h3>Any</h3>
+      <pre><code>let value: any = 10;
+value = "hello";</code></pre>
+
+      <h2>함수</h2>
+      <pre><code>function add(x: number, y: number): number {
+  return x + y;
+}</code></pre>
+
+      <h3>기본값과 선택 매개변수</h3>
+      <pre><code>function greet(name: string = "guest") {
+  console.log(`Hello, ${name}`);
+}
+
+greet(); // Hello, guest</code></pre>
+
+      <h2>유니온 타입</h2>
+      <pre><code>function print(value: number | string) {
+  console.log(value);
+}</code></pre>
+
+      <h2>타입 가드</h2>
+      <pre><code>function print(value: number | string) {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  }
+}</code></pre>
+
+      <h2>인터섹션 타입</h2>
+      <pre><code>interface Person {
+  name: string;
+}
+
+interface Employee {
+  employeeId: number;
+}
+
+let worker: Person & Employee = {
+  name: "Jane",
+  employeeId: 123
+};</code></pre>
+
+
+<h2>TypeScript 열거형(Enum), 인터페이스(Interface), 타입 별칭(Type Alias)</h2>
+
+<h2>열거형 (Enum)</h2>
+<p>TypeScript에서 <code>enum</code>은 특정 값의 집합을 정의할 때 사용됨. JavaScript에는 존재하지 않지만 TypeScript는 이를 지원함.</p>
+
+<h3>숫자형 열거형</h3>
+<pre><code>enum Color {
+Red = 1,
+Green = 2,
+Blue = 4
+}</code></pre>
+<p>값은 자동 증가하거나 명시적으로 정의, 산술 연산도 가능</p>
+
+<h3>문자형 열거형</h3>
+<pre><code>enum Direction {
+Up = "UP",
+Down = "DOWN",
+Left = "LEFT",
+Right = "RIGHT"
+}</code></pre>
+<p>디버깅이 명확하고, 주로 외부 API 값과 연계 시 유용</p>
+
+<h3>역 매핑</h3>
+<pre><code>enum Enum {
+A
+}
+let a = Enum.A;
+let nameOfA = Enum[a]; // "A"</code></pre>
+<p>숫자형 열거형에서만 사용 가능하며, 값으로 키를 얻을 수 있음</p>
+
+<h2>인터페이스 (Interface)</h2>
+<p><code>interface</code>는 객체의 구조를 정의하여 일관성 유지</p>
+
+<h3>변수와 인터페이스</h3>
+<pre><code>interface User {
+name: string;
+age?: number; // 선택적 프로퍼티
+}</code></pre>
+<p>선택적 프로퍼티는 <code>?</code> 연산자 사용</p>
+
+<h3>함수와 인터페이스</h3>
+<pre><code>interface Greeting {
+(user: User, greeting: string): string;
+}</code></pre>
+
+<h3>클래스와 인터페이스</h3>
+<pre><code>interface Calculator {
+add(x: number, y: number): number;
+substract(x: number, y: number): number;
+}</code></pre>
+<p><code>implements</code> 키워드로 인터페이스 강제 구현 가능</p>
+
+<h3>인터페이스 확장</h3>
+<pre><code>interface Person {
+name: string;
+age: number;
+}
+interface Developer extends Person {
+language: string;
+}</code></pre>
+
+<h2>타입 별칭 (Type Alias)</h2>
+<pre><code>type MyString = string;</code></pre>
+<p>타입을 간단히 표현하고 재사용성 높임</p>
+
+<h3>타입 별칭과 인터페이스 비교</h3>
+<pre><code>// 에러 발생
+// type Students extends Person { className: string; }
+
+// 가능
+interface Students extends Person {
+className: string;
+}</code></pre>
+<p><strong>타입 별칭은 확장 불가</strong>, 인터페이스는 확장 가능하므로 확장성이 필요하면 인터페이스 사용 권장</p>
+
+<h2>타입 추론 (Type Inference)</h2>
+<p>타입스크립트는 변수 초기값을 기반으로 타입 자동 추론</p>
+<pre><code>let isNumber = 123; // number로 추론</code></pre>
+
+<h3>최적 공통 타입</h3>
+<pre><code>let x = [0, 1, null];</code></pre>
+<p>배열의 타입을 종합해 공통 타입 추론</p>
+
+<h3>문맥상 타이핑</h3>
+<p>사용되는 문맥에 따라 타입이 추론되기도 함</p>
+
+<h2>클래스 (Class)</h2>
+<h3>접근 제어자</h3>
+<ul>
+  <li><code>public</code>: 외부에서 접근 가능</li>
+  <li><code>private</code>: 외부 접근 불가</li>
+  <li><code>readonly</code>: 읽기 전용</li>
+</ul>
+<pre><code>class Mydog {
+readonly name: string;
+constructor(theName: string) {
+  this.name = theName;
+}
+}</code></pre>
+
+<h2>제네릭 (Generic)</h2>
+<pre><code>function printLog&lt;T&gt;(text: T): T {
+return text;
+}</code></pre>
+<p>재사용 가능한 함수, 인터페이스, 클래스 작성에 유용</p>
+
+<h3>제약 조건 (Constraints)</h3>
+<pre><code>interface TextLength {
+length: number;
+}
+function printLog&lt;T extends TextLength&gt;(text: T): T {
+console.log(text.length);
+return text;
+}</code></pre>
+
+<p><strong>keyof</strong>를 활용한 제약 가능:</p>
+<pre><code>function printLog&lt;T extends keyof Item&gt;(text: T): T {
+return text;
+}</code></pre>
+
+<p>제네릭을 잘 사용하면 타입 안정성과 코드 재사용성을 동시에 확보할 수 있음</p>
+
+      <p>사실 아직 잘 모르겠다.. 요즘 한번에 다양한 언어를 배워서 그런지 헷갈린다..</p>
+    </section>
+  </main>
+</body>
+</html>
