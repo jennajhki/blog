@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python</title>
+  <link rel="stylesheet" href="post74.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+   <main class="post-container">
+    <h1>Python</h1>
+    <p class="date">📅 2025년 5월 30일</p>
+     
+  <section class="post-content">
+    <p>오늘부터 Python을 시작했다. JavaScript와 비슷한 점도 있지만, 다른 점도 많아서 새롭고 흥미롭다.</p>
+
+    <h2>파이썬 vs 자바스크립트</h2>
+    <ul>
+      <li>문자열 여러 줄: <code>'''</code> 또는 <code>"""</code> 사용 (JS는 <code>\n</code> 또는 백틱)</li>
+      <li>비교 연산자: <code>==</code> (JS에서는 <code>===</code> 사용)</li>
+      <li>변수 선언 키워드 없음 (<code>let</code>, <code>const</code> 사용 안 함)</li>
+      <li>변수명: <strong>snake_case</strong> 사용</li>
+    </ul>
+    <p>느낌상 Python이 더 쉽고 직관적인 것 같다.</p>
+
+    <h2>Number Type</h2>
+    <ul>
+      <li><strong>int</strong>: 100, -100</li>
+      <li><strong>float</strong>: 1.23, -2.14</li>
+      <li><strong>complex</strong>: 2+3j, -3-4j</li>
+    </ul>
+    <pre><code>Z = complex(2,3)
+print(Z.real)  # 2.0
+print(Z.imag)  # 3.0</code></pre>
+
+    <h3>복소수 계산</h3>
+    <pre><code>import cmath
+z = 1 + 2j
+print(cmath.polar(z))
+print(cmath.phase(z))</code></pre>
+
+    <h3>수학 연산</h3>
+    <pre><code>import math
+print(math.floor(100.621))  # 내림
+print(math.ceil(100.621))   # 올림
+print(math.round(100.621))  # 반올림
+print(math.fabs(-100))      # 절대값
+print(math.sqrt(4))         # 제곱근
+print(math.pow(2, 5))       # 거듭제곱</code></pre>
+
+    <h2>String</h2>
+    <p>여러 줄 문자열 예:</p>
+    <pre><code>'''
+Python은 배우기 쉬운 문법과 강력한 기능을 제공합니다.
+다양한 분야에서 활용됩니다.
+'''</code></pre>
+
+    <h3>문자열 연결</h3>
+    <pre><code>print("감사합니다." + " " + "🙏")
+print(str(1) + "1")</code></pre>
+
+    <h3>문자열 인덱싱</h3>
+    <pre><code>str_var = "python"
+print(str_var[0])
+print(str_var[-1])</code></pre>
+
+    <h3>문자열 메서드</h3>
+    <ul>
+      <li><code>lower()</code>, <code>upper()</code>: 대소문자 변환</li>
+      <li><code>join()</code>, <code>find()</code>, <code>count()</code>: 연결, 검색, 개수 확인</li>
+    </ul>
+
+    <h2>Boolean</h2>
+    <h3>Falsy 값</h3>
+    <ul>
+      <li><code>False, 0, 0.0, "", [], {}, None</code></li>
+    </ul>
+    <h3>Truthy 값</h3>
+    <ul>
+      <li><code>True, 1, "text", [1], {"a": 1}</code></li>
+    </ul>
+
+    <h2>비교 연산자</h2>
+    <pre><code>print(123 == 100 + 23)  # True
+print(123 != "123")  # True
+print(100 > 200)  # False</code></pre>
+
+    <h2>논리 연산자</h2>
+    <ul>
+      <li><code>or</code>: 논리합</li>
+      <li><code>and</code>: 논리곱</li>
+      <li><code>not</code>: 논리부정</li>
+    </ul>
+
+    <h2>변수</h2>
+    <p>변수는 <code>num = 2</code>와 같이 선언하며, 재할당도 가능하다.</p>
+    <pre><code>name = "Alice"
+name = "Bob"  # 재할당 가능</code></pre>
+
+    <h2>상수</h2>
+    <pre><code>from typing import Final
+PI: Final = 3.141592</code></pre>
+
+    <h2>변수명 규칙</h2>
+    <ul>
+      <li>숫자로 시작 불가</li>
+      <li>예약어 사용 불가</li>
+    </ul>
+
+    <h2>네이밍 컨벤션</h2>
+    <ul>
+      <li><strong>snake_case</strong>: Python 권장 방식</li>
+      <li><strong>camelCase</strong>: JavaScript 스타일</li>
+      <li><strong>PascalCase</strong>: 클래스명에 사용</li>
+    </ul>
+     </section>
+</main>
+</body>
+</html>
