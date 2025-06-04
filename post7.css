@@ -104,4 +104,18 @@ body {
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-  
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+table, th, td {
+  border: 1px solid white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
