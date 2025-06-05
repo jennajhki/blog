@@ -119,3 +119,13 @@ th, td {
   padding: 10px;
   text-align: center;
 }
+
+a {
+  color: white;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #ccc; /* 밝은 회색으로 hover 효과 */
+}
+
