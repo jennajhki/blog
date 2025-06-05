@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blockchain Transaction Test using Ganache & Web3.js- Jenna's Dev Blog</title>
+  <title>Transaction Result on Ganache- Jenna's Dev Blog</title>
   <link rel="stylesheet" href="post7.css" />
 </head>
 <body>
@@ -23,7 +23,7 @@
     <section class="post-content">
       <p>오늘은 <strong>Ganache</strong>를 설치하고 <strong>Web3.js</strong>를 이용하여 이더리움 테스트 환경에서 트랜잭션을 발생시켜보았다. 새로운 지갑을 생성하고, 그 지갑 주소로 50 ETH를 전송하는 과정을 직접 코드로 구현했다.</p>
 
-      <h2>📦 테스트 코드</h2>
+      <h2>테스트 코드</h2>
       <pre><code>
 import { web3 } from '.'HTTP://127.0.0.1:7545'';
 import { Numbers } from 'web3-types';
@@ -52,7 +52,7 @@ export const transferEth = (amount: Numbers) => {
 };
       </code></pre>
 
-      <h2>✅ 실행 결과</h2>
+      <h2>실행 결과</h2>
       <p>터미널에서 <code>npm run test</code> 명령어로 실행했을 때, 트랜잭션이 정상적으로 처리되었음을 확인할 수 있었다.</p>
       <pre><code>
 Transaction successful: {
@@ -75,6 +75,15 @@ Transaction successful: {
       <img src="transaction.png" alt="Ganache 트랜잭션 정보" class="blog-image" />
       <p class="caption">▲ 트랜잭션이 포함된 블록 내역 및 주소, Gas 사용량 확인</p>
 
+
+
+      <h2>Bibliography: Official Web3.js Documentation</h2>
+
+      <p>Web3.js 공식문서:  
+        <a href="https://web3js.readthedocs.io/en/v1.10.0/getting-started.html" target="_blank">
+          https://web3js.readthedocs.io/en/v1.10.0/getting-started.html
+        </a>
+      </p>
      
       <p>Ganache를 통해 로컬 테스트 환경에서 지갑을 생성하고 직접 트랜잭션 전송을 해보면서 Web3.js가 실제로 어떻게 동작하는지를 알 수 있었다. 지갑만들기에 한 발 더 가까워졌다.</p>
     </section>
