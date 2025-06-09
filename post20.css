@@ -1,3 +1,83 @@
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-art {
+  width: 320px;
+  height: 320px;
+  background-image: url("usd1.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.info {
+  margin-left: 3rem;
+  max-width: 540px;
+  flex: 1;
+}
+
+.info h5 {
+  letter-spacing: 2px;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.info h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.info h3 {
+  margin-top: 2rem;
+  font-weight: 600;
+  color: #1db954;
+}
+
+.info p {
+  color: #ccc;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn.play {
+  background-color: #1db954;
+  color: #000;
+}
+
+.btn.save {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #ccc;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
 body {
     margin: 0;
     padding: 0;
