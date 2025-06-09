@@ -128,4 +128,12 @@ a {
 a:hover {
   color: #ccc; /* 밝은 회색으로 hover 효과 */
 }
+figure {
+  margin: 1.5rem auto;
+  text-align: center;
+}
 
+figcaption {
+  color: #ccc;
+  font-size: 0.9rem;
+}
