@@ -1,0 +1,13 @@
+.button {
+    width: 100%;
+    background-color: #6366f1; /* indigo-500 */
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  .button:hover {
+    background-color: #4f46e5; /* indigo-600 */
+  }
+  

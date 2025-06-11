@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { WalletContext } from '../context/WalletContext';
 import { Wallet } from 'ethers';
+import styles from './GenerateWallet.module.css';
 
 const GenerateWallet: React.FC = () => {
   const { setPrivateKey } = useContext(WalletContext);
@@ -16,7 +17,7 @@ const GenerateWallet: React.FC = () => {
 
   return (
     <div style={{ margin: '1rem 0' }}>
-      <button onClick={handleGenerate}>새 지갑 생성</button>
+      <button onClick={handleGenerate} className={styles.button}>새 지갑 생성</button>
     </div>
   );
 };
