@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem' }}>
-      <h2>간단 이더리움 지갑</h2>
+      <h2>Ethereum Wallet</h2>
       <GenerateWallet />
       <ImportWallet />
       <BalanceChecker />
