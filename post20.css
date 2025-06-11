@@ -9,10 +9,11 @@
 
 .album-art {
   position: fixed;
-  top: 120px;
+  top: 220px;
   left: 60px;
   width: 320px;
   height: 320px;
+  margin-left: 15rem;
   background-image: url("usd1.png");
   background-size: cover;
   background-position: center;
