@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './App.module.css'; 
+import styles from './App.module.css';
 import GenerateWallet from './components/GenereateWallet';
 import ImportWallet from './components/ImportWallet';
 import BalanceChecker from './components/BalanceChecker';
@@ -25,8 +25,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem' }}>
-      <h2>Ethereum Wallet</h2>
+    <div className={styles.container}>
+      <h2 className={styles.header}>Ethereum Wallet</h2>
       <GenerateWallet />
       <ImportWallet />
       <BalanceChecker />
