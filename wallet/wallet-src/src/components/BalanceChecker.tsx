@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { InfuraProvider, getDefaultProvider, formatEther } from 'ethers';
 import { WalletContext } from '../context/WalletContext';
+import styles from './BalanceChecker.module.css';
 
 const BalanceChecker: React.FC = () => {
   const { address } = useContext(WalletContext);
@@ -34,13 +35,13 @@ const BalanceChecker: React.FC = () => {
   };
 
   return (
-    <div style={{ margin: '1rem 0' }}>
+    <div className={styles.container}>
       <div>Address: {address ?? '-'}</div>
-      <button onClick={fetchBalance} disabled={loading || !address} style={{ marginTop: '0.5rem' }}>
+      <button onClick={fetchBalance} disabled={loading || !address} className={styles.button}>
         {loading ? '조회 중...' : '잔액 조회'}
       </button>
       {balance !== null && (
-        <div style={{ marginTop: '0.5rem' }}>잔액: {balance} ETH</div>
+        <div className={styles.balance}>잔액: {balance} ETH</div>
       )}
     </div>
   );

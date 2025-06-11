@@ -17,7 +17,7 @@ const GenerateWallet: React.FC = () => {
 
   return (
     <div style={{ margin: '1rem 0' }}>
-      <button onClick={handleGenerate} className={styles.button}>새 지갑 생성</button>
+      <button onClick={handleGenerate} className={styles.button}>CREATE A NEW WALLET</button>
     </div>
   );
 };

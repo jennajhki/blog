@@ -1,0 +1,51 @@
+/* src/components/SendTransaction.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem; /* 좌우 패딩 */
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    align-self: flex-start;
+  }
+  .input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #282828;
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+  }
+  .input:focus {
+    border-color: #1DB954;
+    outline: none;
+  }
+  .button {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #1DB954;
+    color: #ffffff;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+  .button:disabled {
+    background-color: #333333;
+    cursor: not-allowed;
+  }
+  .button:hover:enabled {
+    background-color: #1ed760;
+  }

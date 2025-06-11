@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import styles from './ImportWallet.module.css';
 import { WalletContext } from '../context/WalletContext';
 
 const ImportWallet: React.FC = () => {
@@ -17,15 +18,15 @@ const ImportWallet: React.FC = () => {
   };
 
   return (
-    <div style={{ margin: '1rem 0' }}>
+    <div className={styles.container}>
       <input
         type="text"
         placeholder="Private Key 입력"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        style={{ width: '100%', padding: '0.5rem' }}
+        className={styles.input}
       />
-      <button onClick={handleImport} style={{ marginTop: '0.5rem' }}>
+      <button onClick={handleImport} className={styles.button}>
         지갑 불러오기
       </button>
     </div>

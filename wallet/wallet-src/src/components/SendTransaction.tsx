@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { WalletContext } from '../context/WalletContext';
 import { parseEther, isAddress, formatEther } from 'ethers';
+import styles from './SendTransaction.module.css';
 
 interface SendTransactionProps {
   onSuccess?: (receipt: any) => void;
@@ -76,53 +77,64 @@ const SendTransaction: React.FC<SendTransactionProps> = ({ onSuccess }) => {
   };
 
   return (
-    <div style={{ margin: '1rem 0' }}>
-      <h3>송금</h3>
+    <div className={styles.container}>
+      <h3 className={styles.title}>Send</h3>
       <input
         type="text"
         placeholder="수신 주소"
         value={to}
         onChange={(e) => setTo(e.target.value)}
-        style={{ width: '100%', padding: '0.5rem', marginBottom: '0.5rem' }}
+        className={styles.input}
       />
       <input
         type="text"
         placeholder="금액 (ETH)"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
-        style={{ width: '100%', padding: '0.5rem', marginBottom: '0.5rem' }}
+        className={styles.input}
       />
-      <button onClick={openConfirmModal} disabled={!wallet || estimating}>
+      <button
+        onClick={openConfirmModal}
+        disabled={!wallet || estimating}
+        className={styles.button}
+      >
         {estimating ? '예상 가스비 계산 중...' : '송금 확인'}
       </button>
 
       {modalOpen && (
-        <div className="modal-overlay" style={{
-          position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-          backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center'
-        }}>
-          <div className="modal-content" style={{ backgroundColor: '#fff', padding: '1rem', borderRadius: '8px', maxWidth: '90%', width: '300px' }}>
-            <h4>송금 확인</h4>
-            <p>To: {to}</p>
-            <p>Amount: {amount} ETH</p>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <h4 className={styles.modalTitle}>송금 확인</h4>
+            <p className={styles.modalText}>To: {to}</p>
+            <p className={styles.modalText}>Amount: {amount} ETH</p>
             {estimatedFee !== null ? (
-              <p>예상 가스비: 약 {estimatedFee} ETH</p>
+              <p className={styles.modalText}>예상 가스비: 약 {estimatedFee} ETH</p>
             ) : (
-              <p>예상 가스비를 계산할 수 없습니다.</p>
+              <p className={styles.modalText}>예상 가스비를 계산할 수 없습니다.</p>
             )}
-            <button onClick={() => setModalOpen(false)} style={{ marginRight: '0.5rem' }}>취소</button>
-            <button onClick={send}>확인</button>
+            <button
+              onClick={() => setModalOpen(false)}
+              className={`${styles.modalButton} ${styles.modalCancel}`}
+            >
+              취소
+            </button>
+            <button
+              onClick={send}
+              className={`${styles.modalButton} ${styles.modalConfirm}`}
+            >
+              확인
+            </button>
           </div>
         </div>
       )}
 
-      {status && <div style={{ marginTop: '0.5rem' }}><strong>{status}</strong></div>}
+      {status && <div className={styles.status}><strong>{status}</strong></div>}
       {receipt && (
-        <div style={{ marginTop: '0.5rem' }}>
-          <h4>트랜잭션 영수증</h4>
-          <div>블록 번호: {receipt.blockNumber}</div>
-          <div>거래 해시: {receipt.transactionHash}</div>
-          <div>가스 사용량: {receipt.gasUsed.toString()}</div>
+        <div className={styles.receiptBox}>
+          <h4 className={styles.modalTitle}>트랜잭션 영수증</h4>
+          <div className={styles.itemDetail}>블록 번호: {receipt.blockNumber}</div>
+          <div className={styles.itemDetail}>거래 해시: {receipt.hash}</div>
+          <div className={styles.itemDetail}>가스 사용량: {receipt.gasUsed.toString()}</div>
         </div>
       )}
     </div>
