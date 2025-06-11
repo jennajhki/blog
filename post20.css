@@ -8,6 +8,8 @@
 }
 
 .album-art {
+  position: sticky;
+  top: 100px;
   margin-left: 15rem;
   width: 320px;
   height: 320px;
