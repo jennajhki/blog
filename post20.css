@@ -158,3 +158,18 @@ body {
     top: 0;
   }
   
+
+.container.two-column {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  padding: 3rem 4rem;
+}
+
+.left-column {
+  flex: 0 0 auto;
+}
+
+.right-column {
+  flex: 1;
+}
