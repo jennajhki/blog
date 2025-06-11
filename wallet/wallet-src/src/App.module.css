@@ -3,7 +3,7 @@
     max-width: 600px;
     margin: 2rem auto;
     padding: 1.5rem;
-    background-color: #121212; /* dark background */
+    background-color: #121212; 
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     color: #ffffff;
@@ -12,5 +12,5 @@
         text-align: center;
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
-        color: #1DB954; /* Spotify green accent */
+        color: #1DB954; 
       }

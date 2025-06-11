@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './App.module.css';
+import styles from './App.module.css'; 
 import GenerateWallet from './components/GenereateWallet';
 import ImportWallet from './components/ImportWallet';
 import BalanceChecker from './components/BalanceChecker';
