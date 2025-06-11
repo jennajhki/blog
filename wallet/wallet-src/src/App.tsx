@@ -26,6 +26,13 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.container}>
+
+<header className={styles.navbar}>
+        <div className={styles.logo}>jenna.dev</div>
+        <nav className={styles['nav-links']}>
+        <a href="https://jennajhki.github.io/blog/">home</a>
+        </nav>
+      </header>
       <h2 className={styles.header}>Ethereum Wallet</h2>
       <GenerateWallet />
       <ImportWallet />

@@ -14,3 +14,36 @@
         margin-bottom: 1.5rem;
         color: #1DB954; 
       }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #000;
+        padding: 20px 40px;
+        border-bottom: 1px solid #333;
+      }
+      
+      .logo {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1DB954;
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: #b3b3b3;
+        text-decoration: none;
+        margin-left: 30px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #fff;
+      }
