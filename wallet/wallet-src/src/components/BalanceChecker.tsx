@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { InfuraProvider, getDefaultProvider, formatEther } from 'ethers';
+import { InfuraProvider, AlchemyProvider, JsonRpcProvider, formatEther } from 'ethers';
 import { WalletContext } from '../context/WalletContext';
 import styles from './BalanceChecker.module.css';
 
@@ -8,16 +8,24 @@ const BalanceChecker: React.FC = () => {
   const [balance, setBalance] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Context의 provider가 아닌 별도 provider를 쓰려면 Context에서 꺼내올 수도 있음.
   const provider = (() => {
-    const projectId = process.env.REACT_APP_INFURA_PROJECT_ID;
-    if (projectId) {
-      return new InfuraProvider('goerli', projectId);
+    const infuraId = process.env.REACT_APP_INFURA_PROJECT_ID;
+    const alchemyKey = process.env.REACT_APP_ALCHEMY_API_KEY;
+    if (infuraId) {
+      console.log('Using InfuraProvider with ID:', infuraId);
+      return new InfuraProvider('goerli', infuraId);
     }
-    return getDefaultProvider('goerli');
+    if (alchemyKey) {
+      console.log('Using AlchemyProvider with Key:', alchemyKey);
+      return new AlchemyProvider('goerli', alchemyKey);
+    }
+    console.log('No Infura/Alchemy key found, using public JsonRpcProvider');
+    return new JsonRpcProvider('https://rpc.ankr.com/eth_goerli');
   })();
 
   const fetchBalance = async () => {
+    console.log('Using provider:', provider);
+    console.log('Fetching balance for address:', address);
     if (!address) {
       alert('먼저 지갑을 생성하거나 불러오세요.');
       return;
@@ -27,7 +35,7 @@ const BalanceChecker: React.FC = () => {
       const bal = await provider.getBalance(address);
       setBalance(formatEther(bal));
     } catch (err) {
-      console.error(err);
+      console.error('Balance fetch error:', err);
       alert('잔액 조회 중 오류가 발생했습니다.');
     } finally {
       setLoading(false);
@@ -36,7 +44,8 @@ const BalanceChecker: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div>Address: {address ?? '-'}</div>
+      <div className={styles.label}>Address</div>
+      <div className={styles.addressBox}>{address ?? '-'}</div>
       <button onClick={fetchBalance} disabled={loading || !address} className={styles.button}>
         {loading ? '조회 중...' : '잔액 조회'}
       </button>
