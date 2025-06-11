@@ -8,9 +8,9 @@
 }
 
 .album-art {
-  position: sticky;
-  top: 100px;
-  margin-left: 15rem;
+  position: fixed;
+  top: 120px;
+  left: 60px;
   width: 320px;
   height: 320px;
   background-image: url("usd1.png");
@@ -18,6 +18,7 @@
   background-position: center;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 
 .info {
@@ -175,4 +176,5 @@ body {
 
 .right-column {
   flex: 1;
+  padding-left: 360px;
 }
