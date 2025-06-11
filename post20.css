@@ -13,7 +13,7 @@
   left: 60px;
   width: 320px;
   height: 320px;
-  margin-left: 15rem;
+  margin-left: 12rem;
   background-image: url("usd1.png");
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@
 }
 
 .info {
-  margin-left: 3rem;
+  margin-left: 8rem;
   max-width: 800px;
   flex: 1;
 }
