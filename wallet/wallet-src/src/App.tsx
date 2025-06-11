@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 import GenerateWallet from './components/GenereateWallet';
 import ImportWallet from './components/ImportWallet';
@@ -14,6 +14,10 @@ interface HistoryEntry {
 
 const App: React.FC = () => {
   const [history, setHistory] = useState<HistoryEntry[]>([]);
+
+  useEffect(() => {
+    document.title = 'wallet';
+  }, []);
 
   const handleTxSuccess = (receipt: any) => {
     const entry: HistoryEntry = {
