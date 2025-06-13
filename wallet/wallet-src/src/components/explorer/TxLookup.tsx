@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { ExplorerContext } from '../../context/ExplorerContext';
-import { TransactionResponse, TransactionReceipt, isHexString, formatEther, formatUnits, Provider } from 'ethers';
+import { TransactionResponse, TransactionReceipt, isHexString, formatEther, formatUnits } from 'ethers';
 import styles from './TxLookup.module.css';
 
 const TxLookup: React.FC = () => {
@@ -57,7 +57,11 @@ const TxLookup: React.FC = () => {
           <div>Value: {formatEther(txInfo.value)} ETH</div>
           <div>Gas Price: {txInfo.gasPrice ? formatUnits(txInfo.gasPrice, 'gwei') + ' gwei' : '-'}</div>
           <div>Gas Used: {receipt?.gasUsed.toString()}</div>
-          <div>Transaction Fee: {receipt ? formatEther(receipt.gasUsed * BigInt(txInfo.gasPrice || 0))+' ETH' : '-'}</div>
+          <div>Transaction Fee: {
+            receipt && txInfo.gasPrice
+              ? formatEther(receipt.gasUsed * txInfo.gasPrice) + ' ETH'
+              : '-'
+          }</div>
         </div>
       )}
     </div>

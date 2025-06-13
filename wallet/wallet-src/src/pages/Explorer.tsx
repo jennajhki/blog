@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import { ExplorerContext } from '../context/ExplorerContext';
+import React, { useState } from 'react';
 import TxLookup from '../components/explorer/TxLookup';
 import BlockLookup from '../components/explorer/BlockLookup';
 import AddressLookup from '../components/explorer/AddressLookup';
