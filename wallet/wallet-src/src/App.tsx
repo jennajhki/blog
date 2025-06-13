@@ -5,6 +5,10 @@ import ImportWallet from './components/ImportWallet';
 import BalanceChecker from './components/BalanceChecker';
 import SendTransaction from './components/SendTransaction';
 import TransactionHistory from './components/TransactionHistory';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Explorer from './pages/Explorer';
+
+
 
 interface HistoryEntry {
   hash: string;
@@ -29,21 +33,32 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <div className={styles.container}>
+        <header className={styles.navbar}>
+          <div className={styles.logo}>jenna.dev</div>
+          <nav className={styles['nav-links']}>
+            <Link to="/">Wallet</Link>
+            <Link to="/explorer">Explorer</Link>
+            <a href="https://jennajhki.github.io/blog/">Blog</a>
+          </nav>
+        </header>
 
-<header className={styles.navbar}>
-        <div className={styles.logo}>jenna.dev</div>
-        <nav className={styles['nav-links']}>
-        <a href="https://jennajhki.github.io/blog/">home</a>
-        </nav>
-      </header>
-      <h2 className={styles.header}>Ethereum Wallet</h2>
-      <GenerateWallet />
-      <ImportWallet />
-      <BalanceChecker />
-      <SendTransaction onSuccess={handleTxSuccess} />
-      <TransactionHistory entries={history} />
-    </div>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <h2 className={styles.header}>Ethereum Wallet</h2>
+              <GenerateWallet />
+              <ImportWallet />
+              <BalanceChecker />
+              <SendTransaction onSuccess={handleTxSuccess} />
+              <TransactionHistory entries={history} />
+            </>
+          } />
+          <Route path="/explorer" element={<Explorer />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 
